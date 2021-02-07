@@ -6,6 +6,6 @@ services:
    volumes:
     - ./www:/usr/local/apache2/htdocs
    ports:
-    - "3004:80"
+    - "80:80"
    environment:
     - FLAG=flag{38469ca0ef5b847cc4247f41ff7f9e
