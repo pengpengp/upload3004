@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ -f ./flag.sh ]]; then
+	source ./flag.sh
+
+fi
+exec apache2-foreground
+
+
