@@ -1,11 +1,19 @@
 version: '2'
 services:
  php:
+   image: vsplate/centos_apache2_php5_mysql5:latest
    build: .
+   dockerfile: Dockerfile
    privileged: true
    volumes:
-    - ./www:/usr/local/apache2/htdocs
+    - ./www:/var/www/html
+    - ./:/usr/local/bin/
+   command: chmod +x /usr/local/bin/docker-entrypoint
+   command: chmod +x /usr/local/bin/flag.sh
+   command: source /usr/local/bin/flag.sh
    ports:
     - "80:80"
    environment:
     - FLAG=flag{38469ca0ef5b847cc4247f41ff7f9e
+   working_dir:  /usr/local/bin/
+   entrypoint:   ["/usr/local/bin/docker-entrypoint"]
